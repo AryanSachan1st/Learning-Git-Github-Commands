@@ -1,0 +1,26 @@
+# Ignore all .log files
+*.log
+# * means all files with .log extension
+# Ignore node_modules directory
+node_modules/ 
+# Ignore all files in temp directory
+temp/
+# Ignore all files that are directly in temp directory but not in its subdirectories
+temp/*
+# Ignore specific file
+secrets.txt
+# Ignore all .env files
+*.env
+# Ignore all .DS_Store files (macOS specific)
+.DS_Store
+# Ignore all .class files (Java compiled files)
+*.class
+# Ignore all .pyc files (Python compiled files)
+*.pyc
+# Ignore all .o files (C/C++ compiled files)
+*.o
+# Ignore all .exe files (Windows executable files)
+*.exe
+# Ignore all .so files (Linux shared object files)
+*.so
+# and so on...

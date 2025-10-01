@@ -1,4 +1,4 @@
-Hello, this is Aryan Sachan, the founder and ceo of GenAI Solutions Ltd. 
+Hello, this is Aryan Sachan, feel free to learn about git and github-
 #Git commit flow-
 1. create and edit the file.
 2. git init - to initialize git
@@ -7,7 +7,7 @@ Hello, this is Aryan Sachan, the founder and ceo of GenAI Solutions Ltd.
 5. git commit -m "commit message in present tense"
 6. git log - see the status
 
-# some changes made to a file
+#some changes made to a file
 #To restore the prev version of that file-
 8. git status - to see which file is changed (in red)
 9. git diff FILENAME - see the original text (red) and changes made (green)
