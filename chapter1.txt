@@ -1,1 +1,8 @@
-Hello, this is Aryan Sachan, the founder and ceo of GenAI Solutions Ltd.
+Hello, this is Aryan Sachan, the founder and ceo of GenAI Solutions Ltd. 
+Git commit flow-
+1. create and edit the file.
+2. git init - to initialize git
+3. git status - to see the untracked files
+4. git add filename - add the untracked files in the staging env
+5. git commit -m "commit message in present tense"
+6. git log - see the status
