@@ -13,3 +13,6 @@ To restore the prev version of chapter3.txt-
 8. git status - to see which file is changed (in red)
 9. git diff filename - see the original text (red) and changes made (green)
 10. git checkout filename
+
+To check all the commits-
+11. git log --oneline --all --graph --decorate
