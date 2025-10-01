@@ -1,3 +1,4 @@
+# Ignore all the sensitive files (do not expose them to public like passwords, secret_keys, clientIDs, uris, etc).
 # Ignore all .log files
 *.log
 # * means all files with .log extension
