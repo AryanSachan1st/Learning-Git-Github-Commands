@@ -4,3 +4,4 @@ How to push a local git repo to github
 3. execute this cmd: git remote add origin YOUR-REPO-URL.
 4. push your file in branch: git push -u origin BRANCH. // BRANCH can be like master/main.
 5. to change the current branch (in local repo): git branch -M NEW-BRANCH.
+6. if you have updated some files on your local computer and want to see those changes reflect on your github repo: follow till git commit steps from chapter1 to commit it on you local repo and at the end just do: git push (to update those changes in your github repo).
