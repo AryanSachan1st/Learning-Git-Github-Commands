@@ -1,18 +1,22 @@
 Hello, this is Aryan Sachan, the founder and ceo of GenAI Solutions Ltd. 
-Git commit flow-
+#Git commit flow-
 1. create and edit the file.
 2. git init - to initialize git
 3. git status - to see the untracked files
-4. git add filename - add the untracked files in the staging env
+4. git add FILENAME - add the untracked files in the staging env
 5. git commit -m "commit message in present tense"
 6. git log - see the status
 
-7. some changes made to the chapter3.txt file
-
-To restore the prev version of chapter3.txt-
+# some changes made to a file
+#To restore the prev version of that file-
 8. git status - to see which file is changed (in red)
-9. git diff filename - see the original text (red) and changes made (green)
-10. git checkout filename
+9. git diff FILENAME - see the original text (red) and changes made (green)
+10. git restore FILENAME
 
-To check all the commits-
+#To check all the commits-
 11. git log --oneline --all --graph --decorate
+
+#To remove some files from staging env- (after you have executed git add file1 file2 .....)
+12. git restore --staged file1 file2 .....
+
+# Note: to select all the files in the current dir, use '.' in place of 'filenames'
