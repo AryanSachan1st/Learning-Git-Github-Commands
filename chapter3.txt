@@ -7,3 +7,7 @@
 5. to add the changes mades in files in other branch to our main branch:-
     i. go to main branch: git checkout main
     ii. execute: git merge BRANCH_NAME
+6. want to push this into your github repo:-
+    i. first, bring the remote changes into your local branch: git pull origin main 
+        (if there are changes which you have done in your local repo but not pushed it to the github)
+    ii. git push origin main
