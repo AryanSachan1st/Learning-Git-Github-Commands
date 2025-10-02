@@ -3,4 +3,7 @@
 1. to check the branches: git branch (* is followed by the current branch)
 2. to create new branch: git branch BRANCH_NAME
 3. to switch to new branch: git checkout BRANCH_NAME
-4. so the updated/new file will staged to that branch where it is added (git add FILENAME)
+4. so the updated/new file will staged to that branch where it is added: git add FILENAME
+5. to add the changes mades in files in other branch to our main branch:-
+    i. go to main branch: git checkout main
+    ii. execute: git merge BRANCH_NAME
