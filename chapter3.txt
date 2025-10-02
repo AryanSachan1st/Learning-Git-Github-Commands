@@ -1,1 +1,6 @@
-This is the chapter 3 of my life.
+# Branching in git
+
+1. to check the branches: git branch (* is followed by the current branch)
+2. to create new branch: git branch BRANCH_NAME
+3. to switch to new branch: git checkout BRANCH_NAME
+4. so the updated/new file will staged to that branch where it is added (git add FILENAME)
