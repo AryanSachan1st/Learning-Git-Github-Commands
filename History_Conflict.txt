@@ -1,0 +1,3 @@
+Merge both histories safely:
+    >>> git pull origin main --allow-unrelated-histories
+    >>> git push origin main
