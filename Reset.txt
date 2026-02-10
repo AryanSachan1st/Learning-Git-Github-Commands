@@ -1,0 +1,67 @@
+Git Reset Command Explanation
+
+The `git reset` command is a powerful tool used to undo changes by moving the current branch pointer (HEAD) backward to a previous commit.
+
+Syntax:
+  git reset --<level> HEAD~<n>
+
+Where:
+  <level> : The mode of reset (soft, mixed, hard).
+  HEAD~<n>: The target commit to reset to.
+
+---
+
+Understanding HEAD~n
+HEAD refers to the current commit you are on.
+HEAD~1 (or HEAD^) refers to the direct parent of the current commit (1 commit back).
+HEAD~2 refers to the grandparent of the current commit (2 commits back).
+HEAD~n refers to the nth ancestor of the current commit.
+
+---
+
+The 3 Levels of Git Reset
+
+1. Soft Reset (--soft)
+   Command: git reset --soft HEAD~n
+   
+   - Effect:
+     - Moves the HEAD pointer back to the specified commit.
+     - Staging Area (Index): UNTOUCHED (files at the staging area remains untouched).
+     - Working Directory: UNTOUCHED (your files remain as they were).
+   
+   - Use Case:
+     - When you want to squash the last few commits into one, or simply undo a commit command but keep the work ready to be committed again.
+
+2. Mixed Reset (--mixed) [DEFAULT]
+   Command: git reset --mixed HEAD~n
+   (or simply: git reset HEAD~n)
+   
+   - Effect:
+     - Moves the HEAD pointer back to the specified commit.
+     - Staging Area (Index): RESET (changes from the undone commits differ from the index, so they appear as "unstaged" changes).
+     - Working Directory: UNTOUCHED (your files remain as they were).
+   
+   - Use Case:
+     - When you want to undo a commit and also unstage the files, allowing you to review your work before deciding what to stage again.
+
+3. Hard Reset (--hard)
+   Command: git reset --hard HEAD~n
+   
+   - Effect:
+     - Moves the HEAD pointer back to the specified commit.
+     - Staging Area (Index): RESET to match the target commit.
+     - Working Directory: RESET to match the target commit.
+   
+   - WARNING:
+     - This is DESTRUCTIVE. Any changes in the working directory or staging area that were not committed will be LOST permanently.
+   
+   - Use Case:
+     - When you want to completely discard recent commits and all current changes, returning the project state exactly to how it was at the specified commit.
+
+Summary Table:
+
+| Option   | HEAD | Commit |  Staging Index | Working Directory |
+|----------|------|--------|----------------|-------------------|
+| --soft   | Moves| Resets |  Kept          | Kept              |
+| --mixed  | Moves| Resets |  Resets        | Kept              |
+| --hard   | Moves| Resets |  Resets        | Resets            |
