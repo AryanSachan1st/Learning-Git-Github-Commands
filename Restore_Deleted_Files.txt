@@ -1,0 +1,87 @@
+RESTORING DELETED FILES/FOLDERS FROM REMOTE TO LOCAL
+======================================================
+
+This guide explains how to restore files or folders that have been deleted from your local repository, covering various scenarios.
+
+1. RESTORE FROM REMOTE (Undo Local Deletion)
+--------------------------------------------
+If you have deleted a file locally but HAVE NOT committed the deletion yet, you can simply restore it from the latest commit (HEAD).
+
+Command:
+  git restore <file_name>
+  # OR (older syntax)
+  git checkout -- <file_name>
+
+If you want to discard ALL local changes (including all deletions) and make your local branch exactly match the remote branch:
+
+Commands:
+  git fetch origin
+  git reset --hard origin/<your_branch_name>
+  # Example: git reset --hard origin/main
+
+WARNING: `git reset --hard` will permanently delete any uncommitted local changes.
+
+2. RE-CLONE THE REPOSITORY
+--------------------------
+If your local repository is corrupted or you want a fresh start, you can re-clone the entire repository. This will download everything from the remote GitHub repository.
+
+Steps:
+1. Delete the existing local project folder.
+2. Open your terminal/command prompt.
+3. Run the clone command:
+   git clone <repository_url>
+
+3. RESTORE SPECIFIC FOLDERS ONLY
+--------------------------------
+If you want to restore a specific folder from the remote repository (e.g., from the `main` branch) without resetting your entire project.
+
+Command:
+  git checkout origin/<branch_name> -- <folder_path>
+
+Example:
+  # helper-scripts is the folder name
+  git checkout origin/main -- helper-scripts/
+
+This command grabs the version of the folder from the remote reference and places it in your current working directory. The changes are automatically staged (added to the index).
+
+4. HOW TO RESTORE IF DELETION IS ALREADY COMMITTED
+--------------------------------------------------
+If you have already committed the deletion (and potentially pushed it to GitHub), the file is gone from the "current" version. You need to retrieve it from a previous point in history.
+
+Steps:
+1. Find the commit hash where the file still existed.
+   - You can use `git log` or look at the "History" on GitHub to find the commit ID (SHA) *before* the deletion.
+
+2. Checkout the file/folder from that specific commit.
+   
+   Command:
+     git checkout <commit_hash> -- <path_to_file_or_folder>
+   
+   Example:
+     git checkout 5d8f3a1 -- src/components/Header.js
+
+3. The file is now restored to your working directory and staged.
+4. Commit the restoration.
+   
+   git commit -m "Restored deleted file"
+   git push origin <branch_name>
+
+5. RESTORING MULTIPLE FILES/FOLDERS
+-----------------------------------
+If you need to restore multiple specific files or folders at once.
+
+Scenario A: Deletion NOT committed (Local changes)
+- To restore ALL modified/deleted files in the current directory and subdirectories:
+  git restore .
+  # OR (older syntax)
+  git checkout .
+
+- To restore specific multiple files/folders:
+  git restore file1.txt folderA/ file2.js
+
+Scenario B: Deletion COMMITTED (Restore from history/remote)
+- You can list multiple paths in the checkout command:
+  git checkout <commit_hash_or_branch> -- file1.txt src/folderA/ file2.js
+  
+  Example (restore from main branch):
+  git checkout origin/main -- component1.js component2.js utils/
